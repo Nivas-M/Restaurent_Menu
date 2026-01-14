@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       )}
 
-      <main className="w-full flex-1 flex flex-col items-center pb-20">
+      <main className="w-full flex-1 flex flex-col items-center pb-12 md:pb-20">
         {/* Desktop Navigation */}
         <nav className="hidden md:flex sticky top-[88px] z-30 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-black/5 dark:border-white/5 justify-center mb-12">
           <div className="flex w-full max-w-[960px] justify-center">
@@ -88,21 +88,16 @@ export default function Home() {
         </nav>
 
         {/* Content Area */}
-        <div className="flex flex-col w-full max-w-[960px] px-6 gap-24 md:gap-32 mt-12 md:mt-0">
+        <div className="flex flex-col w-full max-w-[960px] px-6 gap-16 md:gap-32 mt-8 md:mt-0">
           {filteredItems.map((item, index) => (
             <article
               key={item.id}
-              className={`group flex flex-col items-center gap-8 md:gap-16 ${
+              className={`group flex flex-col items-center gap-6 md:gap-16 ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              <div className="w-full md:w-1/2 aspect-[4/3] overflow-hidden rounded-lg relative">
+              <div className="w-full md:w-1/2 aspect-[4/3] overflow-hidden rounded-lg relative shadow-lg">
                 <div className="absolute inset-0 bg-black/10 z-10 transition-opacity group-hover:opacity-0"></div>
-                {/* 
-                  Using a standard div with background image to match the template exactly.
-                  Next.js Image component could be used here for optimization if preferred, 
-                  but background-image is what the template used.
-                */}
                 <div
                   className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
                   role="img"
@@ -118,18 +113,18 @@ export default function Home() {
                 }`}
               >
                 <div
-                  className={`flex w-full items-baseline justify-between mb-4 border-b border-black/10 dark:border-white/10 pb-4 ${
+                  className={`flex w-full items-baseline justify-between mb-3 border-b border-black/10 dark:border-white/10 pb-3 ${
                     index % 2 !== 0 ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  <h3 className="text-3xl font-light text-slate-900 dark:text-white tracking-tight">
+                  <h3 className="text-2xl md:text-3xl font-light text-slate-900 dark:text-white tracking-tight">
                     {item.name}
                   </h3>
-                  <span className="text-xl font-medium text-primary">
+                  <span className="text-lg md:text-xl font-medium text-primary whitespace-nowrap ml-4 md:ml-0">
                     {item.price}
                   </span>
                 </div>
-                <p className="text-slate-600 dark:text-[#9db8a6] text-base font-light leading-relaxed mb-8">
+                <p className="text-slate-600 dark:text-[#9db8a6] text-sm md:text-base font-light leading-relaxed mb-4 md:mb-8">
                   {item.description}
                 </p>
               </div>
@@ -138,8 +133,8 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="w-full border-t border-black/5 dark:border-white/5 py-12 flex flex-col items-center bg-background-light dark:bg-background-dark">
-        <div className="flex gap-8 text-sm font-medium tracking-wider text-slate-500 dark:text-muted uppercase mb-8">
+      <footer className="w-full border-t border-black/5 dark:border-white/5 py-8 md:py-12 flex flex-col items-center bg-background-light dark:bg-background-dark">
+        <div className="flex gap-6 md:gap-8 text-xs md:text-sm font-medium tracking-wider text-slate-500 dark:text-muted uppercase mb-6 md:mb-8">
           <Link className="hover:text-primary transition-colors" href="#">
             Locations
           </Link>
@@ -152,7 +147,7 @@ export default function Home() {
             Instagram
           </Link>
         </div>
-        <p className="text-xs text-slate-400 dark:text-[#9db8a6]/50">
+        <p className="text-[10px] md:text-xs text-slate-400 dark:text-[#9db8a6]/50">
           © 2024 The Green Table. All rights reserved.
         </p>
       </footer>

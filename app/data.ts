@@ -28,9 +28,36 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Bruschetta Trio',
     price: '₹950',
     description: 'Grilled ciabatta topped with tomato-basil, mushroom-truffle, and goat cheese-fig compote.',
-    image: 'https://images.unsplash.com/photo-1572695157363-bc31cafd7219?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1572695157363-bc31cafd7219?auto=format&fit=crop&q=80&w=800', // Verified Unsplash ID
     category: 'STARTERS',
     alt: 'Three types of bruschetta on a wooden board'
+  },
+  {
+    id: '12',
+    name: 'Stuffed Mushrooms',
+    price: '₹850',
+    description: 'Button mushrooms stuffed with cream cheese, herbs, and toasted breadcrumbs.',
+    image: 'https://images.unsplash.com/photo-1623653387945-2fd25214f8fc?auto=format&fit=crop&q=80&w=800',
+    category: 'STARTERS',
+    alt: 'Golden baked stuffed mushrooms'
+  },
+  {
+    id: '13',
+    name: 'Caprese Skewers',
+    price: '₹750',
+    description: 'Fresh mozzarella balls, cherry tomatoes, and basil leaves drizzled with balsamic glaze.',
+    image: 'https://images.unsplash.com/photo-1529312266912-b33cf6227e2f?auto=format&fit=crop&q=80&w=800',
+    category: 'STARTERS',
+    alt: 'Caprese salad skewers'
+  },
+  {
+    id: '14',
+    name: 'Crispy Calamari',
+    price: '₹1100',
+    description: 'Lightly battered fried squid rings served with spicy marinara dipping sauce.',
+    image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&q=80&w=800',
+    category: 'STARTERS',
+    alt: 'Plate of crispy fried calamari'
   },
   
   // SALADS
@@ -51,6 +78,33 @@ export const MENU_ITEMS: MenuItem[] = [
     image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=800',
     category: 'SALADS',
     alt: 'Fresh greek salad'
+  },
+  {
+    id: '15',
+    name: 'Caesar Salad',
+    price: '₹950',
+    description: 'Romaine lettuce, parmesan cheese, house-made croutons, and creamy Caesar dressing.',
+    image: 'https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&q=80&w=800',
+    category: 'SALADS',
+    alt: 'Classic Caesar salad'
+  },
+  {
+    id: '16',
+    name: 'Roasted Beetroot Salad',
+    price: '₹1050',
+    description: 'Roasted beets, walnuts, goat cheese, and arugula with a honey mustard vinaigrette.',
+    image: 'https://images.unsplash.com/photo-1599021404115-374697921a97?auto=format&fit=crop&q=80&w=800',
+    category: 'SALADS',
+    alt: 'Colorful beetroot salad'
+  },
+  {
+    id: '17',
+    name: 'Asian Sesame Salad',
+    price: '₹1000',
+    description: 'Napa cabbage, carrots, bell peppers, edamame, and crispy wontons with sesame ginger dressing.',
+    image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?auto=format&fit=crop&q=80&w=800',
+    category: 'SALADS',
+    alt: 'Asian style salad with sesame'
   },
 
   // MAINS
@@ -81,6 +135,24 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'MAINS',
     alt: 'Grilled salmon dish'
   },
+  {
+    id: '18',
+    name: 'Margherita Pizza',
+    price: '₹1400',
+    description: 'Classic Neapolitan pizza with San Marzano tomato sauce, fresh buffalo mozzarella, and basil.',
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&q=80&w=800',
+    category: 'MAINS',
+    alt: 'Fresh margherita pizza'
+  },
+  {
+    id: '19',
+    name: 'Lamb Chops',
+    price: '₹3000',
+    description: 'Herb-crusted lamb chops served with mint chimichurri and garlic mash.',
+    image: 'https://images.unsplash.com/photo-1603048297172-c92544798d5e?auto=format&fit=crop&q=80&w=800',
+    category: 'MAINS',
+    alt: 'Grilled lamb chops'
+  },
 
   // DESSERTS
   {
@@ -101,6 +173,33 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'DESSERTS',
     alt: 'Bowl of strawberry ice cream'
   },
+  {
+    id: '20',
+    name: 'Chocolate Lava Cake',
+    price: '₹1100',
+    description: 'Warm chocolate cake with a molten center, served with vanilla bean ice cream.',
+    image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&q=80&w=800',
+    category: 'DESSERTS',
+    alt: 'Molten chocolate lava cake'
+  },
+  {
+    id: '21',
+    name: 'Tiramisu',
+    price: '₹1150',
+    description: 'Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.',
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800',
+    category: 'DESSERTS',
+    alt: 'Classic tiramisu slice'
+  },
+  {
+    id: '22',
+    name: 'Panna Cotta',
+    price: '₹950',
+    description: 'Vanilla bean panna cotta topped with passion fruit coulis.',
+    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80&w=800',
+    category: 'DESSERTS',
+    alt: 'Vanilla panna cotta'
+  },
 
   // DRINKS
   {
@@ -120,5 +219,32 @@ export const MENU_ITEMS: MenuItem[] = [
     image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&q=80&w=800',
     category: 'DRINKS',
     alt: 'Red hibiscus iced tea'
+  },
+  {
+    id: '23',
+    name: 'Mango Lassi',
+    price: '₹500',
+    description: 'Traditional yogurt-based drink blended with sweet alphonso mangoes.',
+    image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&q=80&w=800',
+    category: 'DRINKS',
+    alt: 'Yellow mango lassi drink'
+  },
+  {
+    id: '24',
+    name: 'Espresso Tonic',
+    price: '₹450',
+    description: 'Double shot of espresso poured over ice and tonic water with a slice of orange.',
+    image: 'https://images.unsplash.com/photo-1517701604599-bb29b5c7faaf?auto=format&fit=crop&q=80&w=800',
+    category: 'DRINKS',
+    alt: 'Iced espresso tonic'
+  },
+  {
+    id: '25',
+    name: 'Fresh Lime Soda',
+    price: '₹350',
+    description: 'Sparkling soda water with fresh lime juice, mint, and sea salt.',
+    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800',
+    category: 'DRINKS',
+    alt: 'Refreshing lime soda with mint'
   }
 ];
