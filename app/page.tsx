@@ -1,156 +1,120 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { CATEGORIES, MENU_ITEMS, type Category } from "./data";
 
-export default function Home() {
-  const [activeCategory, setActiveCategory] = useState<Category>("STARTERS");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const filteredItems = MENU_ITEMS.filter(
-    (item) => item.category === activeCategory
-  );
-
+export default function LandingPage() {
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center">
-      <header className="w-full max-w-[1200px] flex items-center justify-between border-b border-black/5 dark:border-white/5 px-6 py-6 md:px-12 z-40 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md sticky top-0">
-        <div className="flex items-center gap-3">
-          <div className="size-8 text-primary">
-            <span className="material-symbols-outlined !text-[32px]">eco</span>
-          </div>
-          <h2 className="text-xl md:text-2xl font-light tracking-wide text-slate-900 dark:text-white">
-            The Green Table
-          </h2>
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-white dark:bg-zinc-950 p-6">
+      <div className="max-w-[1400px] w-full text-center space-y-12">
+        <div className="space-y-4 py-12">
+            <h1 className="text-4xl md:text-7xl font-light tracking-tight text-slate-900 dark:text-white">
+            Dining <span className="font-serif italic text-slate-400">by</span> Design
+            </h1>
+            <p className="text-slate-500 dark:text-slate-400 text-lg font-light max-w-2xl mx-auto">
+                Explore our curated collection of restaurant themes, each crafted to evoke a specific atmosphere and culinary journey.
+            </p>
         </div>
         
-        {/* Mobile Hamburger Button */}
-        <button
-          className="md:hidden text-slate-900 dark:text-white focus:outline-none"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <span className="material-symbols-outlined !text-[32px]">
-            {isMobileMenuOpen ? "close" : "menu"}
-          </span>
-        </button>
-      </header>
-
-      {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[88px] z-50 bg-background-light dark:bg-background-dark p-6 overflow-y-auto">
-          <div className="flex flex-col gap-4">
-            {CATEGORIES.map((category) => (
-              <button
-                key={category}
-                onClick={() => {
-                  setActiveCategory(category);
-                  setIsMobileMenuOpen(false);
-                }}
-                className={`text-lg font-medium tracking-widest py-3 border-b border-black/5 dark:border-white/5 text-left ${
-                  activeCategory === category
-                    ? "text-primary"
-                    : "text-slate-500 dark:text-muted"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <main className="w-full flex-1 flex flex-col items-center pb-12 md:pb-20">
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex sticky top-[88px] z-30 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-black/5 dark:border-white/5 justify-center mb-12">
-          <div className="flex w-full max-w-[960px] justify-center">
-            {CATEGORIES.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`group flex min-w-fit flex-col items-center px-6 py-4 border-b-2 transition-colors ${
-                  activeCategory === category
-                    ? "border-primary"
-                    : "border-transparent hover:border-white/20"
-                }`}
-              >
-                <span
-                  className={`text-sm font-medium tracking-widest transition-colors ${
-                    activeCategory === category
-                      ? "text-primary dark:text-primary"
-                      : "text-slate-500 dark:text-muted group-hover:text-slate-900 dark:group-hover:text-white"
-                  }`}
-                >
-                  {category}
-                </span>
-              </button>
-            ))}
-          </div>
-        </nav>
-
-        {/* Content Area */}
-        <div className="flex flex-col w-full max-w-[960px] px-6 gap-16 md:gap-32 mt-8 md:mt-0">
-          {filteredItems.map((item, index) => (
-            <article
-              key={item.id}
-              className={`group flex flex-col items-center gap-6 md:gap-16 ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
-            >
-              <div className="w-full md:w-1/2 aspect-[4/3] overflow-hidden rounded-lg relative shadow-lg">
-                <div className="absolute inset-0 bg-black/10 z-10 transition-opacity group-hover:opacity-0"></div>
-                <div
-                  className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  role="img"
-                  aria-label={item.alt}
-                  style={{
-                    backgroundImage: `url('${item.image}')`,
-                  }}
-                ></div>
-              </div>
-              <div
-                className={`w-full md:w-1/2 flex flex-col items-start ${
-                  index % 2 === 0 ? "text-left" : "md:items-end md:text-right"
-                }`}
-              >
-                <div
-                  className={`flex w-full items-baseline justify-between mb-3 border-b border-black/10 dark:border-white/10 pb-3 ${
-                    index % 2 !== 0 ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                  <h3 className="text-2xl md:text-3xl font-light text-slate-900 dark:text-white tracking-tight">
-                    {item.name}
-                  </h3>
-                  <span className="text-lg md:text-xl font-medium text-primary whitespace-nowrap ml-4 md:ml-0">
-                    {item.price}
-                  </span>
-                </div>
-                <p className="text-slate-600 dark:text-[#9db8a6] text-sm md:text-base font-light leading-relaxed mb-4 md:mb-8">
-                  {item.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </main>
-
-      <footer className="w-full border-t border-black/5 dark:border-white/5 py-8 md:py-12 flex flex-col items-center bg-background-light dark:bg-background-dark">
-        <div className="flex gap-6 md:gap-8 text-xs md:text-sm font-medium tracking-wider text-slate-500 dark:text-muted uppercase mb-6 md:mb-8">
-          <Link className="hover:text-primary transition-colors" href="#">
-            Locations
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 pb-20">
+          
+          {/* 1. Nature */}
+          <Link href="/theme-nature" className="group relative h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-500">
+            <div className="absolute inset-0 bg-[#f6f8f6] dark:bg-[#111813] transition-colors"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-green-500 text-4xl mb-4 group-hover:scale-110 transition-transform">eco</span>
+                <h3 className="text-xl font-light text-slate-900 dark:text-white">Nature</h3>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mt-2">Organic & Fresh</p>
+            </div>
+            <div className="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </Link>
-          <span className="opacity-20">|</span>
-          <Link className="hover:text-primary transition-colors" href="#">
-            Contact
+
+          {/* 2. Elegant */}
+          <Link href="/theme-elegant" className="group relative h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-500 bg-[#0a0a0a]">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-amber-500 text-4xl mb-4 group-hover:scale-110 transition-transform">diamond</span>
+                <h3 className="text-xl font-serif text-white">Elegant</h3>
+                <p className="text-xs text-amber-500/80 uppercase tracking-widest mt-2">Luxury Dining</p>
+            </div>
           </Link>
-          <span className="opacity-20">|</span>
-          <Link className="hover:text-primary transition-colors" href="#">
-            Instagram
+
+          {/* 3. Vibrant */}
+          <Link href="/theme-vibrant" className="group relative h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-500 bg-white dark:bg-zinc-900">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-orange-400 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+             <div className="absolute bottom-0 left-0 w-32 h-32 bg-pink-500 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-pink-500 text-4xl mb-4 group-hover:rotate-12 transition-transform">celebration</span>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Vibrant</h3>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mt-2">Fun & Pop</p>
+            </div>
           </Link>
+
+          {/* 4. Rustic */}
+          <Link href="/theme-rustic" className="group relative h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-500 bg-[#1c1917]">
+             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] opacity-10"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-[#ea580c] text-4xl mb-4 group-hover:scale-110 transition-transform">soup_kitchen</span>
+                <h3 className="text-xl font-bold text-[#e7e5e4] uppercase tracking-widest">Rustic</h3>
+                <p className="text-xs text-[#a8a29e] uppercase tracking-widest mt-2">Farm & Fire</p>
+            </div>
+          </Link>
+
+          {/* 5. Nordic */}
+          <Link href="/theme-nordic" className="group relative h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-500 bg-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-slate-400 text-4xl mb-4 group-hover:-translate-y-1 transition-transform">ac_unit</span>
+                <h3 className="text-xl font-light text-slate-900 tracking-widest uppercase">Nordic</h3>
+                <p className="text-xs text-slate-400 uppercase tracking-widest mt-2">Minimalist</p>
+            </div>
+          </Link>
+
+          {/* 6. Retro */}
+          <Link href="/theme-retro" className="group relative h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-500 bg-[#fce7f3]">
+             <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'radial-gradient(circle, #000 10%, transparent 10%)', backgroundSize: '10px 10px'}}></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-[#ec4899] text-4xl mb-4 group-hover:animate-bounce">lunch_dining</span>
+                <h3 className="text-xl font-retro text-[#ec4899] text-2xl filter drop-shadow-[2px_2px_0_white]">Retro</h3>
+                <p className="text-xs text-[#be185d] uppercase tracking-widest mt-2 font-bold">Diner Style</p>
+            </div>
+          </Link>
+
+          {/* 7. Cyberpunk */}
+          <Link href="/theme-cyberpunk" className="group relative h-64 rounded-2xl overflow-hidden border border-[#00ff41] shadow-[0_0_10px_#00ff41] hover:shadow-[0_0_20px_#00ff41] transition-all duration-500 bg-black">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-[#00ff41] text-4xl mb-4 group-hover:rotate-90 transition-transform">terminal</span>
+                <h3 className="text-xl font-cyber text-[#00ff41] uppercase tracking-widest">Cyberpunk</h3>
+                <p className="text-xs text-[#ff00ff] uppercase tracking-widest mt-2">Future Tech</p>
+            </div>
+          </Link>
+
+          {/* 8. Coastal */}
+          <Link href="/theme-coastal" className="group relative h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-500 bg-[#f0f9ff]">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-[#0ea5e9] text-4xl mb-4 group-hover:translate-x-1 transition-transform">sailing</span>
+                <h3 className="text-xl font-bold text-[#0c4a6e]">Coastal</h3>
+                <p className="text-xs text-[#0ea5e9] uppercase tracking-widest mt-2">Breezy & Blue</p>
+            </div>
+          </Link>
+
+          {/* 9. Traditional */}
+          <Link href="/theme-traditional" className="group relative h-64 rounded-2xl overflow-hidden border border-[#8b4513]/20 shadow-lg hover:shadow-xl transition-all duration-500 bg-[#fcf8ec]">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
+                <span className="material-symbols-outlined text-[#8b4513] text-4xl mb-4">history_edu</span>
+                <h3 className="text-xl font-serif font-bold text-[#2d2a24] italic">Heritage</h3>
+                <p className="text-xs text-[#8b4513] uppercase tracking-widest mt-2">Traditional</p>
+            </div>
+          </Link>
+
+           {/* 10. Grunge */}
+           <Link href="/theme-grunge" className="group relative h-64 rounded-2xl overflow-hidden border border-black shadow-lg hover:shadow-xl transition-all duration-500 bg-[#111]">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10 transform -rotate-1 group-hover:rotate-0 transition-transform">
+                <span className="material-symbols-outlined text-[#ff003c] text-4xl mb-4">sports_bar</span>
+                <h3 className="text-xl font-grunge text-white uppercase tracking-widest text-2xl">Grunge</h3>
+                <p className="text-xs text-[#777] uppercase tracking-widest mt-2 font-bold bg-white/10 px-2 py-1">Street</p>
+            </div>
+          </Link>
+
         </div>
-        <p className="text-[10px] md:text-xs text-slate-400 dark:text-[#9db8a6]/50">
-          © 2024 The Green Table. All rights reserved.
-        </p>
-      </footer>
+      </div>
     </div>
   );
 }

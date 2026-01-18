@@ -9,6 +9,15 @@
 
   --font-display: var(--font-work-sans), sans-serif;
   --font-body: var(--font-noto-sans), sans-serif;
+  --font-serif: var(--font-playfair), serif;
+  --font-fun: var(--font-fredoka), sans-serif;
+  --font-rustic: var(--font-roboto-slab), serif;
+  --font-retro: var(--font-pacifico), cursive;
+  --font-cyber: var(--font-orbitron), sans-serif;
+  --font-coastal: var(--font-nunito), sans-serif;
+  --font-trad: var(--font-cormorant), serif;
+  --font-grunge: var(--font-permanent), cursive;
+  --font-nordic: var(--font-outfit), sans-serif;
 }
 
 /* Scrollbar Styles */
